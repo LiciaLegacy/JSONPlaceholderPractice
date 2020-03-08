@@ -2,7 +2,7 @@
 let usernameDiv = document.getElementById("username");
 let postTitles = document.getElementById("postTitles");
 let userAlbums = document.getElementById("albums");
-let usernameSpan = document.getElementById("usernameSpan")
+//let usernameSpan = document.getElementById("usernameSpan")
 
 let userNameSubmitted = document.getElementById("userNameSubmitted").value;
 //userNameSubmitted = userNameSubmitted.value;
@@ -11,13 +11,19 @@ let userNameSubmitted = document.getElementById("userNameSubmitted").value;
 //userNameSubmittedVal = userNameSubmitted.value;
 
 //console.log(typeOf userNameSubmittedVal);
+function resetPage(){
+  location.reload();
+}
 
 function lookupName(){
+//this.form.reset();
+//location.reload();
 let userNameSubmitted = document.getElementById("userNameSubmitted").value;
 let postTitles = document.getElementById("postTitles");
 let userAlbums = document.getElementById("albums");
 let usernameSpan = document.getElementById("usernameSpan");
 let usersName = document.getElementById("usersName");
+//let usersName = document.getElementsByClassName("usersName");
 usernameSpan.textContent = userNameSubmitted;
 
   
@@ -60,17 +66,19 @@ Promise.all([usersPromise, postPromise, albumsPromise])
   
   usersName.textContent=foundUser.name;
   
-  let outputPosts;
-  let outputAlbums;
+  let outputPosts = '<ul>';
+  let outputAlbums = '<ul>';
   filteredArray.forEach(post=>{
     outputPosts += `<li>${post.title}</li>`;
     //arrayOfTitles.push(post.title);
   });
+  outputPosts += '</ul>'
   postTitles.innerHTML=outputPosts; 
   
   filteredArrayAlbums.forEach(album=>{
   outputAlbums += `<li>${album.title}</li>`;
   });
+  outputAlbums += '</ul>';
   userAlbums.innerHTML=outputAlbums; 
   console.log(arrayOfTitles);
   })

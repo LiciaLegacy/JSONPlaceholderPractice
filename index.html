@@ -11,41 +11,24 @@
             <label>Please enter username...</label><br>
             <input type="text" placholder="enter name here" id="userNameSubmitted">
             <button onclick="lookupName()">Submit</button>
+            <button onclick="resetPage()">Reset</button>
             <div>
                 <p id="username">Username submitted: <span id="usernameSpan"></span></p>
                 <p>The user's name is</p>
                 <h2 id="usersName"></h2>
                 <h3>Post Titles:</h3>
-                <ul id="postTitles">
-                </ul>
-                <h3>User's Albums:</h3>
-                <ul id="albums">
-                </ul>
+                <div id="postTitles">
+                  <!-- <ul id="postTitles">
+                  </ul> -->
+                </div>
+                <h3>Users Albums:</h3>
+                <div id="albums">
+                  <!-- <ul id="albums">
+                  </ul> -->
+                </div>
             </div>
             
         </div>
-
-
-
-
-
-      <!-- <div>
-    <label>Please enter username</label><br>
-    <input type="text" placholder="enter name here" id="userNameSubmitted">
-    <button onclick="lookupName()">Submit</button>
-    <div>
-      <p id="username">Hello</p>
-      <p>Post Titles</p>
-      <ul id="postTitles">
-        <li></li>
-      </ul>
-      <p>User's Albums</p>
-      <ul id="albums">
-        <li></li>
-      </ul>
-    </div>
-  
-  </div> -->
   <script src="restapi.js"></script>
   </body>
   </html>
