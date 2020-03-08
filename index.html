@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>repl.it</title>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div>
+            <label>Please enter username...</label><br>
+            <input type="text" placholder="enter name here" id="userNameSubmitted">
+            <button onclick="lookupName()">Submit</button>
+            <div>
+                <p id="username">Username submitted: <span id="usernameSpan"></span></p>
+                <p>The user's name is</p>
+                <h2 id="usersName"></h2>
+                <h3>Post Titles:</h3>
+                <ul id="postTitles">
+                </ul>
+                <h3>User's Albums:</h3>
+                <ul id="albums">
+                </ul>
+            </div>
+            
+        </div>
+
+
+
+
+
+      <!-- <div>
+    <label>Please enter username</label><br>
+    <input type="text" placholder="enter name here" id="userNameSubmitted">
+    <button onclick="lookupName()">Submit</button>
+    <div>
+      <p id="username">Hello</p>
+      <p>Post Titles</p>
+      <ul id="postTitles">
+        <li></li>
+      </ul>
+      <p>User's Albums</p>
+      <ul id="albums">
+        <li></li>
+      </ul>
+    </div>
+  
+  </div> -->
+  <script src="restapi.js"></script>
+  </body>
+  </html>
