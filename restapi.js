@@ -23,24 +23,33 @@ let postTitles = document.getElementById("postTitles");
 let userAlbums = document.getElementById("albums");
 let usernameSpan = document.getElementById("usernameSpan");
 let usersName = document.getElementById("usersName");
+let noUser = document.getElementById("noUser");
 //let usersName = document.getElementsByClassName("usersName");
 usernameSpan.textContent = userNameSubmitted;
 
   
 let usersPromise = fetch('https://jsonplaceholder.typicode.com/users')
 .then((response)=>{
+//resetPage();
   return response.json();
+})
+.catch((err) => {
+  console.log('Error message:', err.statusText);
+  resetPage();
+noUser.textContent="Sorry but that user does not exist!";
 });
 
 let postPromise = fetch('https://jsonplaceholder.typicode.com/posts')
 .then((response)=>{
   return response.json();
-});
+})
+.catch(err => console.log('Error message:', err.statusText));
 
  let albumsPromise = fetch('https://jsonplaceholder.typicode.com/albums')
 .then((response)=>{
   return response.json();
-});
+})
+.catch(err => console.log('Error message:', err.statusText));
   
 Promise.all([usersPromise, postPromise, albumsPromise])
 .then((response)=>{
@@ -80,20 +89,24 @@ Promise.all([usersPromise, postPromise, albumsPromise])
   });
   outputAlbums += '</ul>';
   userAlbums.innerHTML=outputAlbums; 
-  console.log(arrayOfTitles);
+  //console.log(arrayOfTitles);
   })
+  .catch((reject) => {
+    console.log('Error message:', reject.statusText);
+    noUser.textContent="Sorry but that user does not exist! Please reset and try again.";
+  });
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-  .then(response => response.json())
-  //.then(json => console.log(json))
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       title: 'foo',
+//       body: 'bar',
+//       userId: 1
+//     }),
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8"
+//     }
+//   })
+//   .then(response => response.json())
+//   //.then(json => console.log(json))
